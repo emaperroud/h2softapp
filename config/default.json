@@ -6,5 +6,5 @@
     "default": 100,
     "max": 50
   },
-  "mysql": "mysql://root:jobssteve.11@localhost:3306/h2softapp"
+  "mysql": "mysql://root:ema@localhost:3306/h2softapp"
 }
