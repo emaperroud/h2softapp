@@ -4,27 +4,26 @@ const Sequelize = require('sequelize');
 
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
-  const usuario = sequelizeClient.define('usuario', {
+  const users = sequelizeClient.define('users', {
     name: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: true
     },
-    lastName: {
+    lastname: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: true
     },
     email: {
       type: Sequelize.STRING,
-      allowNull: false
-    },
-    user: {
-      type: Sequelize.STRING,
-      allowNull: false
+      allowNull: true,
+      unique: true
     },
     password: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: true
     }
+
+
   }, {
     hooks: {
       beforeCount(options) {
@@ -33,10 +32,10 @@ module.exports = function (app) {
     }
   });
 
-  usuario.associate = function (models) { // eslint-disable-line no-unused-vars
+  users.associate = function (models) { // eslint-disable-line no-unused-vars
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
 
-  return usuario;
+  return users;
 };
