@@ -5,14 +5,6 @@ const Sequelize = require('sequelize');
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const users = sequelizeClient.define('users', {
-    name: {
-      type: Sequelize.STRING,
-      allowNull: true
-    },
-    lastname: {
-      type: Sequelize.STRING,
-      allowNull: true
-    },
     email: {
       type: Sequelize.STRING,
       allowNull: true,

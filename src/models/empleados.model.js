@@ -5,10 +5,18 @@ const Sequelize = require('sequelize');
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const empleados = sequelizeClient.define('empleados', {
-    text: {
+    name: {
       type: Sequelize.STRING,
-      allowNull: false
-    }
+      allowNull: true
+    },
+    lastname: {
+      type: Sequelize.STRING,
+      allowNull: true
+    },
+    birthdate: {
+      type: Sequelize.STRING,
+      allowNull: true
+    },
   }, {
     hooks: {
       beforeCount(options) {
